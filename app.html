@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="cursorRaquete"><!--define aqui nesta página o cursor da raquete-->
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+
+		<!--Estilo customizado-->
+		<link rel="stylesheet" type="text/css" href="css/estilo.css">
+
+		<!--script customizado-->
+		<script src="jogo.js"></script>
+	</head>
+	<body onresize="ajustaTamanhoPalcoJogo()">
+		<!--/\ Sobre a linha acima: como o onresize sempre é adicionado após a janela ser adicionada, isso irá forçar com que os valores sejam sempre atualizados.-->
+
+		<div class="painel">
+			<div class="vidas"><!-- vidas do usuário -->
+				<img id="v1" src="imagens/coracao_cheio.png">
+				<img id="v2" src="imagens/coracao_cheio.png">
+				<img id="v3" src="imagens/coracao_cheio.png">
+			</div>
+
+			<div class="cronometro">
+				<!--Cronometro.-->
+				Tempo restante: <span id="cronometro"></span>
+			</div>
+		</div>
+
+		<script>
+			document.getElementById("cronometro").innerHTML = tempo
+			/*colocado o método do arquivo jogo.js aqui dentro para que não der erro de precedência, já que o script foi declarado antes do body*/
+
+			/*abaixo ele faz com que apareça o mosquito a cada 1 segundo*/
+			var criaMosca = setInterval(function(){
+				posicaoRandomica()
+			}, criaMosquitoTempo)
+		</script>
+	</body>
+</html>
